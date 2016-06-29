@@ -9,10 +9,18 @@
 import UIKit
 import QuartzCore
 
+enum SlideOutState {
+    case BothCollapsed
+    case LeftPanelExpanded
+    case RigthPanelExpanded
+}
+
 class ContainerViewController: UIViewController {
     
     var centerNavigationViewController: UINavigationController!
     var centerViewController: CenterViewController!
+    var currentState: SlideOutState = .BothCollapsed
+    var leftViewController: SidePanelViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()

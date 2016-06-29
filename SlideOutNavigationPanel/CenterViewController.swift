@@ -24,6 +24,7 @@ class CenterViewController: UIViewController {
     }
     
     @IBAction func derTapped(sender: AnyObject) {
+        delegate?.toggleLeftPanel!()
     }
     
 }
