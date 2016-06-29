@@ -9,7 +9,7 @@
         <!--Side Panel View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SidePanelViewController" customModule="SlideOutNavigationPanel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftViewController" id="BYZ-38-t0r" customClass="SidePanelViewController" customModule="SlideOutNavigationPanel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -103,7 +103,7 @@
         <!--Center View Controller-->
         <scene sceneID="FUE-z0-i48">
             <objects>
-                <viewController id="C7H-Dz-mRZ" customClass="CenterViewController" customModule="SlideOutNavigationPanel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CenterViewController" id="C7H-Dz-mRZ" customClass="CenterViewController" customModule="SlideOutNavigationPanel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YoT-z0-n5c"/>
                         <viewControllerLayoutGuide type="bottom" id="Z9m-Sm-NRw"/>
