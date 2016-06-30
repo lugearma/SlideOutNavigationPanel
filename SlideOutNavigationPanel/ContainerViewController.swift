@@ -21,6 +21,7 @@ class ContainerViewController: UIViewController {
     var centerViewController: CenterViewController!
     var currentState: SlideOutState = .BothCollapsed
     var leftViewController: SidePanelViewController?
+    let centerPanelExpandedOffset: CGFloat = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,12 @@ class ContainerViewController: UIViewController {
 extension ContainerViewController: CenterViewControllerDelegate {
     func toggleLeftPanel() {
         
+        let notAlreadyExpanded = (currentState != .LeftPanelExpanded)
+        
+        if notAlreadyExpanded {
+            addLeftPanelViewController()
+        }
+        animateLeftPanel(notAlreadyExpanded)
     }
     
     func toggleRightPanel() {
@@ -45,14 +52,43 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     func addLeftPanelViewController() {
-        
+        if leftViewController == nil {
+            leftViewController = UIStoryboard.leftViewController()
+            leftViewController?.animals = Animal.allCats()
+            
+            addChildSidePanelViewController(leftViewController!)
+        }
+    }
+    
+    func addChildSidePanelViewController(sidePanel:SidePanelViewController) {
+        view.insertSubview(sidePanel.view, atIndex: 0)
+        addChildViewController(sidePanel)
+        sidePanel.didMoveToParentViewController(self)
     }
     
     func addRightPanelViewController() {
         
     }
     
-    func animateLeftPanel() {
+    func animateLeftPanel(shouldExpand: Bool) {
+        if shouldExpand {
+            currentState = .LeftPanelExpanded
+            
+            animateCenterPanelXPosition(CGRectGetWidth(centerNavigationViewController.view.frame) - centerPanelExpandedOffset)
+        } else {
+            animateCenterPanelXPosition(0) { finished in
+                self.currentState = .BothCollapsed
+                self.leftViewController!.view.removeFromSuperview()
+                self.leftViewController = nil
+            }
+        }
+    }
+    
+    func animateCenterPanelXPosition(targetPosition: CGFloat, completion: (Bool -> Void)! = nil){
+        
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
+                self.centerNavigationViewController.view.frame.origin.x = targetPosition
+            }, completion: completion)
         
     }
     

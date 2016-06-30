@@ -21,10 +21,11 @@ class CenterViewController: UIViewController {
     var delegate: CenterViewControllerDelegate?
     
     @IBAction func izqTapped(sender: AnyObject) {
+        delegate?.toggleLeftPanel?()
     }
     
     @IBAction func derTapped(sender: AnyObject) {
-        delegate?.toggleLeftPanel!()
+        
     }
     
 }

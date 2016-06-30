@@ -23,16 +23,16 @@ class Animal: NSObject {
     
     class func allCats() -> [Animal] {
         return [ Animal(title: "Sleeping Cat", creator: "papaija2008", image: UIImage(named: "ID-100113060.jpg")),
-                 Animal(title: "Pussy Cat", creator: "Carlos Porto", image: UIImage(named: "ID-10022760.jpg")),
-                 Animal(title: "Korat Domestic Cat", creator: "sippakorn", image: UIImage(named: "ID-10091065.jpg")),
-                 Animal(title: "Tabby Cat", creator: "dan", image: UIImage(named: "ID-10047796.jpg")),
-                 Animal(title: "Yawning Cat", creator: "dan", image: UIImage(named: "ID-10092572.jpg")),
-                 Animal(title: "Tabby Cat", creator: "dan", image: UIImage(named: "ID-10041194.jpg")),
-                 Animal(title: "Cat On The Rocks", creator: "Willem Siers", image: UIImage(named: "ID-10017782.jpg")),
-                 Animal(title: "Brown Cat Standing", creator: "aopsan", image: UIImage(named: "ID-10091745.jpg")),
-                 Animal(title: "Burmese Cat", creator: "Rosemary Ratcliff", image: UIImage(named: "ID-10056941.jpg")),
-                 Animal(title: "Cat", creator: "dan", image: UIImage(named: "ID-10019208.jpg")),
-                 Animal(title: "Cat", creator: "graur codrin", image: UIImage(named: "ID-10011404.jpg")) ]
+                 Animal(title: "Pussy Cat", creator: "Carlos Porto", image: UIImage(named: "cat")),
+                 Animal(title: "Korat Domestic Cat", creator: "sippakorn", image: UIImage(named: "cat")),
+                 Animal(title: "Tabby Cat", creator: "dan", image: UIImage(named: "cat")),
+                 Animal(title: "Yawning Cat", creator: "dan", image: UIImage(named: "cat")),
+                 Animal(title: "Tabby Cat", creator: "dan", image: UIImage(named: "cat")),
+                 Animal(title: "Cat On The Rocks", creator: "Willem Siers", image: UIImage(named: "cat")),
+                 Animal(title: "Brown Cat Standing", creator: "aopsan", image: UIImage(named: "cat")),
+                 Animal(title: "Burmese Cat", creator: "Rosemary Ratcliff", image: UIImage(named: "cat")),
+                 Animal(title: "Cat", creator: "dan", image: UIImage(named: "cat")),
+                 Animal(title: "Cat", creator: "graur codrin", image: UIImage(named: "cat")) ]
     }
     
     class func allDogs() -> [Animal] {

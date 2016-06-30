@@ -15,9 +15,9 @@ protocol SidePanelViewControllerDelegate {
 class SidePanelViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var animals = Animal.allDogs()
+    var animals: [Animal]?
     
-    struct TabelView {
+    struct TableView {
         struct CellIdentifiers {
             static let AnimalCell = "AnimalCell"
         }
@@ -25,19 +25,25 @@ class SidePanelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
+        self.tableView.reloadData()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
 }
 
 extension SidePanelViewController: UITableViewDataSource {
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animals.count
+        return animals!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath) as! AnimalCell
-        cell.configureForAnimal(animals[indexPath.row])
+        let cell = tableView.dequeueReusableCellWithIdentifier(TableView.CellIdentifiers.AnimalCell, forIndexPath: indexPath) as! AnimalCell
+        cell.configureForAnimal(animals![indexPath.row])
         return cell
     }
 }

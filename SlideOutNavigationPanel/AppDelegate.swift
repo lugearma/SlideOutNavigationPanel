@@ -15,13 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let containerViewController = ContainerViewController()
         
-//        let containerViewController = ContainerViewController()
-//        
-//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        self.window?.rootViewController = containerViewController
-//        self.window?.makeKeyAndVisible()
         
+        self.window?.rootViewController = containerViewController
+        self.window?.makeKeyAndVisible()
+//
         return true
     }
 
